@@ -3,15 +3,13 @@ import { Mail, Phone, MapPin, Linkedin, Github, Download, Send } from "lucide-re
 import { toast } from "sonner";
 import { PROFILE } from "../data/resume";
 
-const API = process.env.REACT_APP_BACKEND_URL;
-
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
 
   const onChange = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
     const { name, email, message } = form;
     if (!name.trim() || !email.trim() || !message.trim()) {
@@ -19,20 +17,13 @@ export default function Contact() {
       return;
     }
     setSending(true);
-    try {
-      const res = await fetch(`${API}/api/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
-      });
-      if (!res.ok) throw new Error("send failed");
-      toast.success("Message received — Akshay will get back to you soon.");
-      setForm({ name: "", email: "", message: "" });
-    } catch {
-      toast.error("Could not send. Please email directly.");
-    } finally {
-      setSending(false);
-    }
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `${message}\n\n—\nFrom: ${name}\nReply-to: ${email}`
+    );
+    window.location.href = `mailto:${PROFILE.email}?subject=${subject}&body=${body}`;
+    toast.success("Opening your email client…");
+    setTimeout(() => setSending(false), 800);
   };
 
   return (
@@ -90,7 +81,8 @@ export default function Contact() {
 
             <a
               data-testid="contact-resume-download"
-              href={`${API}/api/resume/download`}
+              href={`${process.env.PUBLIC_URL || ""}/Akshay_Babu_Resume_Senior_SDET.docx`}
+              download
               className="btn-sharp mt-8 inline-flex"
             >
               <Download size={14} /> Download Resume (.docx)

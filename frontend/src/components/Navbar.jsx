@@ -25,7 +25,7 @@ export default function Navbar() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const API = process.env.REACT_APP_BACKEND_URL;
+  const RESUME_HREF = `${process.env.PUBLIC_URL || ""}/Akshay_Babu_Resume_Senior_SDET.docx`;
 
   return (
     <header
@@ -66,7 +66,8 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             data-testid="navbar-resume-download"
-            href={`${API}/api/resume/download`}
+            href={RESUME_HREF}
+            download
             target="_blank"
             rel="noreferrer"
             className="btn-sharp"
@@ -100,7 +101,8 @@ export default function Navbar() {
             ))}
             <a
               data-testid="navbar-mobile-resume"
-              href={`${API}/api/resume/download`}
+              href={RESUME_HREF}
+              download
               className="btn-sharp mt-4 self-start"
             >
               ./resume.docx
