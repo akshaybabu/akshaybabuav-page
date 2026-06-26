@@ -17,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./frontend
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,13 +25,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: yarn
-          cache-dependency-path: ./frontend/yarn.lock
 
       - name: Install dependencies
+        working-directory: ./frontend
         run: yarn install --frozen-lockfile
 
       - name: Build (CRA static)
+        working-directory: ./frontend
         env:
           # Static UI only — no backend, no DB, no LLM.
           REACT_APP_BACKEND_URL: ""
@@ -42,9 +39,11 @@ jobs:
         run: yarn build
 
       - name: SPA fallback (copy index.html -> 404.html)
+        working-directory: ./frontend
         run: cp build/index.html build/404.html
 
       - name: Disable Jekyll on Pages
+        working-directory: ./frontend
         run: touch build/.nojekyll
 
       - name: Setup Pages
