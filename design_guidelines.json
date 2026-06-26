@@ -1,0 +1,101 @@
+{
+  "project_domain": "Portfolio / Personal Brand (SDET / Automation Engineer)",
+  "theme": "dark",
+  "archetype": "Void-Script Architect (Archetype 4: Swiss High-Contrast + Retro-Futurism Terminal)",
+  "core_identity": {
+    "name": "Akshay Babu Anthoorveettil",
+    "role": "Senior SDET / Automation Engineer",
+    "location": "Hyderabad, India",
+    "core_stats": [
+      "2.9+ Years Experience",
+      "7+ Enterprise Projects",
+      "5 Platforms Automated (Web, Mobile, API, Desktop, iOS)"
+    ],
+    "achievements": [
+      "Star Contributor of the Quarter"
+    ]
+  },
+  "color_palette": {
+    "background": "#050505",
+    "surface": "#111111",
+    "surface_glass": "rgba(17, 17, 17, 0.7)",
+    "primary": "#10B981",
+    "secondary": "#D946EF",
+    "accent": "#38BDF8",
+    "text_main": "#F8FAFC",
+    "text_muted": "#94A3B8",
+    "border": "rgba(255, 255, 255, 0.1)"
+  },
+  "typography": {
+    "headings": "Cabinet Grotesk, sans-serif",
+    "body": "JetBrains Mono, monospace",
+    "weights": {
+      "headings": "900",
+      "body": "400",
+      "bold": "700"
+    },
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl tracking-tighter uppercase font-black",
+      "h2": "text-3xl sm:text-4xl tracking-tight uppercase font-bold",
+      "h3": "text-xl sm:text-2xl tracking-tight font-bold",
+      "body": "text-base leading-relaxed tracking-tight",
+      "code": "text-sm tracking-tighter text-emerald-400"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "p-8 md:p-16 lg:p-24",
+    "grid_system": "Bento Grid (Control Room style for data, Tetris style for projects)",
+    "gap": "gap-6 md:gap-12",
+    "border_radius": "rounded-none"
+  },
+  "surface_strategies": {
+    "cards": "Retro-Futurism / Terminal Look: Flat #111111 background, 1px border-white/10. Hover: border-emerald-500/50 + subtle drop-shadow-[0_0_8px_rgba(16,185,129,0.3)].",
+    "header": "Crystal Glass: backdrop-blur-xl bg-black/60 with 1px border-b border-white/10. Sticky at top.",
+    "buttons": "Terminal style: squared (rounded-none), 1px solid primary color. Hover fills background with primary color, text becomes black. Use a blinking block cursor effect."
+  },
+  "components_strategy": {
+    "skills_matrix": "Grid borders (border-collapse style) exposing the skeleton. Categories: Automation Tools, Languages, Frameworks, Cloud/DevOps, Specialized Capabilities.",
+    "automation_demo": "A large mock IDE/Terminal window prominently in the Hero section. Mac dots on top-left. Content types out via Framer Motion showing Playwright/Selenium test execution. Lines appear sequentially. Final output shows green '100% PASS' with test execution stats.",
+    "chat_ai": "'Ask Akshay's AI'. A command-line style interface instead of a generic chat bubble. User input preceded by '>'. AI response preceded by 'Claude$'. Responses stream in like a terminal.",
+    "projects": "Hover over project cards reveals text like a decrypted payload or system diagnostic report. Includes: Solstice insurance Playwright POM, South West WorkTop with AWS Bedrock, M2A/Signet, Pepco OCR POS, Christies hospitality.",
+    "work_experience": "Timeline formatted like a server log file or git commit history. (Coforge Nov 2024-Present, Cigniti Feb-Nov 2024, Cigniti Jun 2023-Feb 2024)."
+  },
+  "motion_and_interactions": {
+    "hover": "High contrast shifts. Terminal cursor blinking on active elements.",
+    "scroll": "Lenis smooth scrolling mandatory for premium feel.",
+    "automation_runner": "Sequence of text typing out, rapid log lines appearing with green checkmarks. Use framer-motion staggerChildren."
+  },
+  "assets_and_media": {
+    "images": [
+      {
+        "category": "hero_texture",
+        "url": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwZGFyayUyMHRleHR1cmUlMjBub2lzZXxlbnwwfHx8fDE3ODI1MTA0MDZ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Minimalist dark noise texture for background overlay (opacity 5-10%). Blend mode: overlay."
+      },
+      {
+        "category": "terminal_vibe",
+        "url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODh8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGRhcmslMjBjb2RlJTIwdGVybWluYWx8ZW58MHx8fHwxNzgyNTEwNDA2fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Matrix code background. Use sparingly inside the Automation Demo container or masked behind the hero section with very low opacity."
+      },
+      {
+        "category": "server_lights",
+        "url": "https://images.unsplash.com/photo-1680992044138-ce4864c2b962?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwzfHxkYXJrJTIwbW9kZXJuJTIwc2VydmVyJTIwcm9vbSUyMGdyZWVuJTIwbGlnaHRzfGVufDB8fHx8MTc4MjUxMDQwNnww&ixlib=rb-4.1.0&q=85",
+        "description": "Server room green lights. Use as a subtle image overlay for project thumbnails to give a hardware/backend feel."
+      }
+    ],
+    "icons": "lucide-react for standard icons, use simple sharp SVGs where possible."
+  },
+  "accessibility": {
+    "contrast": "Ensure text over terminal background is WCAG AA/AAA. Use text-shadow if necessary for glowing text.",
+    "testing": "All interactive elements MUST include data-testid (e.g., 'resume-download-btn', 'ask-ai-input', 'project-link-[name]')."
+  },
+  "instructions_to_main_agent": [
+    "Load 'Cabinet Grotesk' and 'JetBrains Mono' from Google Fonts or fontsource.",
+    "Install 'framer-motion' for typing effects and terminal log animations.",
+    "Install 'lucide-react' for UI icons.",
+    "Avoid standard Shadcn rounded cards. Strip out border-radius classes to enforce the sharp, 0px border-radius terminal aesthetic.",
+    "The Hero section must NOT be a generic left-text right-image. Emphasize the 'Automation Demo' terminal window spanning a large portion of the layout, with 'Akshay's Stats' visually acting as system parameters/diagnostics on the side.",
+    "Implement the live Automation Demo using a sequence of staggered timeouts or Framer Motion to simulate a test script typing and executing in real-time.",
+    "Keep gradients to an absolute minimum. Rely on stark borders, neon accents on pure dark backgrounds, and subtle noise textures."
+  ]
+}
