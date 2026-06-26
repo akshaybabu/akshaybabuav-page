@@ -7,8 +7,8 @@ export const PROFILE = {
   location: "Hyderabad, Telangana, India",
   phone: "+91 96524 66004",
   email: "anthoorveettilakshaybabu@gmail.com",
-  linkedin: "#",
-  github: "#",
+  linkedin: "https://www.linkedin.com/in/anthoorveettilakshaybabu",
+  github: "https://github.com/akshaybabu",
   portfolio: "#",
 };
 

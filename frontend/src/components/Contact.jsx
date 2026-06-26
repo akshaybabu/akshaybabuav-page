@@ -75,14 +75,14 @@ export default function Contact() {
               <ContactRow
                 icon={<Linkedin size={14} className="text-emerald-400" />}
                 k="linkedin"
-                v="linkedin.com/in/akshay-babu"
+                v="linkedin.com/in/anthoorveettilakshaybabu"
                 href={PROFILE.linkedin}
                 testid="contact-linkedin"
               />
               <ContactRow
                 icon={<Github size={14} className="text-emerald-400" />}
                 k="github"
-                v="github.com/akshay-babu"
+                v="github.com/akshaybabu"
                 href={PROFILE.github}
                 testid="contact-github"
               />
