@@ -84,11 +84,11 @@ export default function Hero() {
                 See the work <ArrowDownRight size={14} />
               </button>
               <button
-                data-testid="hero-cta-ask-ai"
-                onClick={() => document.getElementById("ask-ai")?.scrollIntoView({ behavior: "smooth" })}
+                data-testid="hero-cta-contact"
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                 className="btn-sharp ghost"
               >
-                Ask my AI →
+                Get in touch →
               </button>
             </motion.div>
 
