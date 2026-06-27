@@ -6,7 +6,7 @@ import { Toaster } from "sonner";
 function App() {
   return (
     <div className="App grain">
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Portfolio />} />
         </Routes>
