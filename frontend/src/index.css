@@ -4,30 +4,244 @@
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap');
 
+/* ─── Design Tokens (Dark Terminal Theme) ─── */
 :root {
-  --bg: #ffffff;
-  --surface: #f8fafc;
-  --surface-2: #eef2f7;
-  --border: rgba(0,0,0,0.08);
-  --border-strong: rgba(0,0,0,0.16);
-  --text: #111827;
-  --muted: #4b5563;
+  --bg: #050505;
+  --surface: #111111;
+  --surface-2: #0a0a0c;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --text: #F8FAFC;
+  --muted: #94A3B8;
   --primary: #10B981;
   --secondary: #D946EF;
   --accent: #38BDF8;
   --warn: #F59E0B;
   --danger: #EF4444;
+  --radius: 0px;
 }
 
+/* ─── Resets & Base ─── */
 * { border-color: var(--border); }
 html, body, #root { background: var(--bg); color: var(--text); }
 body {
-  margin:0;
-  font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  background-color:var(--bg);
-  min-height:100vh;
+  margin: 0;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  min-height: 100vh;
 }
 
-/* Remaining styles unchanged */
+/* ─── Display Font ─── */
+.font-display {
+  font-family: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+}
+
+/* ─── Section Kicker ─── */
+.kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--primary);
+  display: inline-block;
+}
+
+/* ─── Section Heading ─── */
+.h-section {
+  font-family: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Terminal Card ─── */
+.term {
+  background: #0a0a0c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ─── Scanlines Overlay ─── */
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.015) 2px,
+    rgba(255, 255, 255, 0.015) 4px
+  );
+  z-index: 1;
+}
+
+/* ─── Film Grain Overlay ─── */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ─── Flat Card ─── */
+.card-flat {
+  background: #0a0a0c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease;
+}
+.card-flat:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* ─── Stat Number ─── */
+.stat-num {
+  font-family: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+/* ─── Buttons ─── */
+.btn-sharp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #050505;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn-sharp:hover {
+  background: #0ea471;
+  border-color: #0ea471;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);
+}
+
+.btn-sharp.ghost {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.btn-sharp.ghost:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: none;
+}
+
+/* ─── Tags / Chips ─── */
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+.tag:hover {
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.tag.active {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+/* ─── Blinking Cursor ─── */
+.caret-inline {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  background: var(--primary);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: caret-blink 1s step-end infinite;
+}
+
+@keyframes caret-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ─── Pulse Dot ─── */
+.pulse-dot {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+}
+
+/* ─── Marquee Animation ─── */
+.marquee-track {
+  animation: marquee-scroll 30s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Underline Links ─── */
+.link-uline {
+  text-decoration: none;
+  background-image: linear-gradient(var(--primary), var(--primary));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.3s ease;
+}
+a:hover .link-uline,
+.link-uline:hover {
+  background-size: 100% 1px;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: #fff;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}

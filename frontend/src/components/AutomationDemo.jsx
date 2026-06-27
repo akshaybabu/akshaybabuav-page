@@ -7,7 +7,7 @@ def test_insurance_quote_flow():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-        page.goto("https://solstice.example.com/quote")
+        page.goto("https://example.com/quote")
         page.fill("[data-testid=age-input]", "32")
         page.select_option("[data-testid=cover-select]", "premium")
         page.click("[data-testid=calculate-btn]")
@@ -15,12 +15,12 @@ def test_insurance_quote_flow():
         browser.close()`;
 
 const LOG_STEPS = [
-  { delay: 200, type: "info", text: "› akshay@coforge ~ % pytest tests/test_insurance_quote.py -v" },
+  { delay: 200, type: "info", text: "› akshay@company.com ~ % pytest tests/test_insurance_quote.py -v" },
   { delay: 500, type: "muted", text: "platform linux -- Python 3.11.4, pytest-7.4.0, playwright-1.42.0" },
   { delay: 500, type: "muted", text: "collected 1 item" },
   { delay: 600, type: "info", text: "tests/test_insurance_quote.py::test_insurance_quote_flow " },
   { delay: 400, type: "step", text: "  → launching chromium (headless)" },
-  { delay: 350, type: "step", text: "  → navigate https://solstice.example.com/quote" },
+  { delay: 350, type: "step", text: "  → navigate https://.example.com/quote" },
   { delay: 300, type: "step", text: "  → fill age-input = 32" },
   { delay: 250, type: "warn", text: "  ⚠ primary locator [data-testid=cover-select] failed" },
   { delay: 350, type: "step", text: "  → auto-healing: trying recorded fallback attrs..." },

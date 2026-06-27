@@ -30,9 +30,8 @@ export default function Navbar() {
   return (
     <header
       data-testid="navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-xl bg-black/60 border-b border-white/10" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-xl bg-black/60 border-b border-white/10" : "bg-transparent"
+        }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-4 flex items-center justify-between">
         <button
@@ -45,7 +44,7 @@ export default function Navbar() {
           </span>
           <span className="font-mono text-sm tracking-tight">
             <span className="text-white/50">~/</span>
-            <span className="text-white">akshay</span>
+            <span className="text-white">Akshay Babu AV</span>
             <span className="text-emerald-400 caret-inline" />
           </span>
         </button>
@@ -72,7 +71,7 @@ export default function Navbar() {
             rel="noreferrer"
             className="btn-sharp"
           >
-            ./resume.docx
+            Resume
           </a>
         </div>
 
